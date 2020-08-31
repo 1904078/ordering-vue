@@ -1,0 +1,310 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+    padding-bottom: 70px; 
+}
+a{
+    color:#b89f6c
+}
+/* 首页 */
+/* 顶部导航 */
+
+.navbar-default{
+    background-color: #fff;
+    border:none;
+    box-shadow: 0 2px 8px rgba(0,0,0,.075);
+}
+.navbar-default .navbar-brand {
+    color: #ffe6aa;
+    padding: 15px 50px;
+    font-size: 30px;
+    text-shadow: 0.5px 0.5px #9cacb4;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #666;
+    font-size: 16px;
+    font-weight: bold;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+background-color: #ffe6aa;
+}
+.navbar-default .collapsed:focus{
+    background-color:#fff;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #b89f6c;
+}
+.table tr td {
+    border: 1px solid white;
+
+}
+.nav-lf {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    background-color: #E5E5E5;
+    text-align: center;
+}
+/* 轮播图 */
+img{
+    width: 100%;
+}
+.damu-carousel{
+    height: 500px;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+.damu-carousel{
+    height: 200px; 
+}
+}
+/* 主体部分 */
+.damu-img {
+    background-color: #fff;
+    width:100%;
+    height:100%;
+    overflow: hidden;
+    padding-left:0;
+    margin-top: 20px;
+}
+ .damu-details{
+     margin-top:10px;
+ }
+ .damu-details a{
+     text-decoration: none;
+ }
+ .damu-intro{
+    padding-bottom: 50px;
+    margin-top:20px;
+ }
+ .damu-price,.damu-cart{
+    display: block;
+    float: left;
+    margin-right: 17px;
+ }
+ .glyphicon {
+    top: 4px;
+ }
+ #Menu{
+     margin-top:20px;
+     width:100%;
+ }
+ /* 底部导航 */
+ .damu-bottomNav{
+     margin-top:10px;
+ }
+ .damu-bottomNav a{
+     display: block;
+     height: 30px;
+     line-height:30px;
+     width:100%;
+     text-align: center;
+     text-decoration: none;
+ }
+
+/* 登录注册页面 */
+.damu-form-column-wrap {
+    margin-top:100px;
+  }
+.damu-checkbox-wrap {
+font-size: 12px;
+position: relative;
+margin-left: 15px;
+color: #fad221;
+}
+.damu-checkbox-wrap input {
+content: "";
+left: -17px;
+position: absolute;
+top: -5px;
+visibility: hidden;
+}
+.damu-checkbox-wrap a{
+font-size: 12px;
+color: #fad221;
+margin-left:20px;
+text-decoration: none;
+}
+.damu-checkbox-wrap input:checked ~ .checkmark {
+background-color: #fad221;
+}
+.damu-checkbox-wrap input:checked ~ .checkmark:after {
+display: block;
+}
+.damu-checkbox-wrap .checkmark {
+background: #fad221;
+height: 16px;
+left: -17px;
+position: absolute;
+top: 0px;
+width: 16px;
+}
+.damu-checkbox-wrap .checkmark:after {
+border-color: #bababa;
+border-style: solid;
+border-width: 0 2px 2px 0;
+content: "";
+height: 12px;
+left: 5px;
+position: absolute;
+right: 0;
+top: 0;
+transform: rotate(45deg);
+width: 6px;
+border-color: #fff;
+display: none;
+}
+
+.damu-login-form-wrapper .damu-form-column-wrap h2 {
+margin-bottom: 30px;
+color: #fad221;
+}
+.damu-login-form-wrapper .damu-form-column-wrap .custom-form-label2 a {
+font-size: 12px;
+color: #fad221;
+margin-left:20px;
+text-decoration: none;
+}
+.damu-button-wrap {
+margin-left: 20px;
+margin-top:20px;
+width: 50%;
+background-color: #fad221;
+border-color: #f7ce1a;
+text-align: center;
+}
+
+.damu-form-button {
+color: #fff;
+background-color: #fad221;
+border:none;
+width:110px;
+}
+.damu-form-button:hover {
+background-color: #f3c808;
+color:#fff
+}
+.form-group {
+margin-bottom: 14px;
+}
+
+.damu_input_label{
+margin-right:20px;
+
+}
+.damu_input_field{
+margin-top:20px;
+height: 40px;
+}
+
+/* 购物车页面*/
+/* 商品信息 */
+.damu-cart-wrap{
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    z-index: 2;
+    color: #fff;
+    background-color: #e2bf22;
+    border-color: #997e07;
+}
+.damu-page-header{
+    margin: 50px 0 20px;
+    text-align: center;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.damu-cart-checkbox{
+    background-color: #fff;
+    border: none;
+}
+.damu-table{background: #fff;text-align: center;}
+.damu-table img{width:40px;height:40px;}
+.damu-table td *{vertical-align: middle;}
+.damu-table th{text-align: center;}
+/* 结算栏 */
+.damu-bottom-wrap{
+    bottom: 30px;
+    margin-bottom: 20px;
+    border-width: 1px 0 0;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+.bottom-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bottom-menu #checkAllBottom {
+    vertical-align: text-bottom;
+}
+#selectGoodsMoney {
+    color: rgb(194, 182, 24);
+    font-size: 16px;
+    font-weight: bolder;
+}
+#deleteMulty, #payMulty{
+    color: rgb(194, 182, 24);
+    cursor: pointer;
+    vertical-align: text-bottom;
+}
+.bottom-menu-include {
+    background: #e5e5e5;
+}
+
+/* My account */
+.list-group-item {
+    margin-bottom: 10px;
+    border:none;
+}
+.damu-my-info,.damu-pay-info {
+    float: right;
+}
+
+.damu-my-button-wrap {
+    margin: 20px auto;
+    width: 20%;
+    background-color: #fad221;
+    border-color: #f7ce1a;
+    text-align: center;
+}
+
+/* order */
+.damu-order-img {
+    background-color: #fff;
+    width: 10%;
+    height: 10%;
+    overflow: hidden;
+    padding-left: 0;
+    /* margin-top: 40px; */
+}
+.damu-order-status {
+    float: right;
+    color: red;
+    margin-right:20px
+}
+.damu-order-status span{
+    margin-right:40px
+}
+.damu-order-tabpanel {
+    border-bottom: 1px solid #eee;
+}
+.damu-order-wrap{
+    margin-top:20px;
+} 
+
+/* pay */
+.damu-pay-btn{
+    background-color: #fff;
+    border:none
+}
+
+
+
+
