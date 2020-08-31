@@ -37,24 +37,24 @@
               </div>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-9 col-9">
-              <div class="container damu-product">
-                <div class="row">
-                  <ul>
-                    <li>
+              <!-- <div class="container damu-product">
+                <div class="row"> -->
+                  <ul class="container damu-product">
+                    <li class="row" v-for="(item,index) in goodsList" :key="index">
                       <div class="col-4 col-sm-4 col-md-4 col-lg-4">
                         <a href="#">
-                          <img src="../../static\images\chips.jpg" class="damu-img" />
+                          <img class="damu-product-img" v-bind:src="'/static/images/'+item.productImg"  />
                         </a>
                       </div>
                       <div class="col-8 col-sm-8 col-md-8 col-lg-4">
-                        <div class="damu-intro">
+                        <div class="damu-product-intro">
                           <a href="#">
-                            <h4>Chicken burger</h4>
-                            <span>Chicken Chicken burgerChicken burgerChicken burger</span>
+                            <h4 class="product-name">{{item.productName}}</h4>
+                            <span class="product-intro">{{item.productIntro}}</span>
                           </a>
                         </div>
-                        <div>
-                          <p class="damu-price">£2.5</p>
+                        <div class="damu-price-cart">
+                          <span class="damu-price">£{{item.productPrice}}</span>
                           <a href="javascript:;" class="damu-cart">
                             <span class="fa fa-cart-plus"></span>
                           </a>
@@ -62,8 +62,8 @@
                       </div>
                     </li>
                   </ul>
-                </div>
-              </div>
+                <!-- </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -117,11 +117,10 @@ a {
   border-color: #997e07;
 }
 .damu-product {
-  /* height: 100px; */
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.damu-img {
+.damu-product-img{
   background-color: #fff;
   width: 100%;
   /* height:100%; */
@@ -132,7 +131,11 @@ a {
 .damu-product-details {
   margin-top: 10px;
 }
-.damu-intro {
+.damu-price-cart{
+    width:100%;
+    height:50px
+}
+.damu-product-intro{
   padding-bottom: 1rem;
   margin-top: 10px;
 }
@@ -140,7 +143,13 @@ a {
 .damu-cart {
   display: block;
   float: left;
-  margin-right: 2rem;
+  margin-left: 4rem;
+}
+@media only screen and (max-width: 768px) {
+  .damu-price,
+  .damu-cart {
+    margin-left: 2rem;
+}
 }
 .fa {
   top: 4px;
@@ -151,3 +160,28 @@ a {
   width: 100%;
 }
 </style>
+<script>
+import axios from 'axios'
+export default {
+  data(){
+    return{
+      goodsList:[]
+    }
+  },
+  components:{
+  },
+  mounted:function(){
+        this.getGoodsList();
+  },
+  methods:{
+    getGoodsList(){
+      axios.get(".././static/goods.json").then((result)=>{
+        var res=result.data;
+        console.log(res.result);
+        this.goodsList=res.result;
+      });
+    }
+  }
+};
+
+</script>

@@ -6,12 +6,14 @@
             "productID":"1001",
             "productName":"chips",
             "productPrice":"2.5",
-            "productImg":"burger1.jpg"
+            "productIntro":"chips spicy",
+            "productImg":"chips.jpg"
         },
         {
             "productID":"1002",
             "productName":"burger",
             "productPrice":"3",
+            "productIntro":"Chicken",
             "productImg":"burger2.jpg"
         }
     ]

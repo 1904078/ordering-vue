@@ -25,7 +25,7 @@ import axios from 'axios'
 export default {
   data(){
     return{
-      goodsList:[]
+      // goodsList:[]
     }
   },
   components:{
@@ -35,18 +35,18 @@ export default {
     NavCarousel,
     NavTab
   },
-  mounted:function(){
-        this.getGoodsList();
-  },
-  methods:{
-    getGoodsList(){
-      axios.get(".././static/goods.json").then((result)=>{
-        var res=result.data;
-        console.log(res.result);
-        this.goodsList=res.result;
-      });
-    }
-  }
+  // mounted:function(){
+  //       this.getGoodsList();
+  // },
+  // methods:{
+  //   getGoodsList(){
+  //     axios.get(".././static/goods.json").then((result)=>{
+  //       var res=result.data;
+  //       console.log(res.result);
+  //       this.goodsList=res.result;
+  //     });
+  //   }
+  // }
 };
 
 </script>
