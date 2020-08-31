@@ -26,19 +26,25 @@
     </ul>
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="menu" role="tabpanel" aria-labelledby="menu-tab">
-        <div class="container" align="center">
+        <div class="container-fluid" align="center">
           <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-3 col-3">
-              <div class="list-group" id="Menu">
-                <a href="#" class="list-group-item active">Single item</a>
-                <a href="#" class="list-group-item">Meal</a>
+              <ul class="list-group" id="Menu" >
+                  <li>
+                    <a href="javascript:void(0)"  class="list-group-item" v-bind:class="{'active':menuChecked=='all'}"
+                    @click="menuChecked='all'">All</a>
+                 </li> 
+                <li v-for="(item,index) in menuList" :key="index">
+                    <a href="javascript:void(0)" class="list-group-item menuName"  v-bind:class="{'active':menuChecked==index}" 
+                    @click="menuChecked=index">{{item.menuName}}</a>
+                </li>
+                
+                <!-- <a href="#" class="list-group-item">Meal</a>
                 <a href="#" class="list-group-item">Snack</a>
-                <a href="#" class="list-group-item">Drinks</a>
-              </div>
+                <a href="#" class="list-group-item">Drinks</a> -->
+              </ul>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-9 col-9">
-              <!-- <div class="container damu-product">
-                <div class="row"> -->
                   <ul class="container damu-product">
                     <li class="row" v-for="(item,index) in goodsList" :key="index">
                       <div class="col-4 col-sm-4 col-md-4 col-lg-4">
@@ -102,19 +108,69 @@
     </div>
   </div>
 </template>
+<script>
+import axios from 'axios'
+export default {
+  data(){
+    return{
+      goodsList:[],
+       menuList:[
+        {"menuId":"1",
+          "menuName":"Single item"
+        },
+        {"menuId":"2",
+            "menuName":"Meal"
+        },
+        {"menuId":"3",
+         "menuName":"Snack"
+        },
+        { "menuId":"4",
+          "menuName":"Drinks"
+        }
+    ],
+     menuChecked:'all'
+    }
+  },
+  components:{
+  },
+  mounted:function(){
+        this.getGoodsList();
+  },
+  methods:{
+    getGoodsList(){
+      axios.get(".././static/goods.json").then((result)=>{
+        var res=result.data;
+        this.goodsList=res.result;
+      });
+    },
+  }
+};
+
+</script>
 <style scoped>
-.damu-navtab {
-  margin-bottom: 55px;
+ul li{
+    list-style:none;
 }
 a {
   color: #b89f6c;
+  text-decoration: none;
 }
-.list-group-item.active,
-.list-group-item.active:focus,
-.list-group-item.active:hover {
+.damu-navtab {
+  margin-bottom: 55px;
+}
+.row{
+    margin-bottom: 10px;
+}
+.menuName{
+  background-color: #f1f0e8;
+  border-color: #e2e1dd;
+}
+ #menu .active,
+ .menuName:focus,
+ .menuName:hover {
   color: #fff;
   background-color: #e2bf22;
-  border-color: #997e07;
+  border-color: #d1b01d;
 }
 .damu-product {
   margin-top: 20px;
@@ -139,6 +195,11 @@ a {
   padding-bottom: 1rem;
   margin-top: 10px;
 }
+@media only screen and (min-width: 992px) {
+.damu-product-intro{
+  margin-top: 50px;
+}
+}
 .damu-price,
 .damu-cart {
   display: block;
@@ -160,28 +221,3 @@ a {
   width: 100%;
 }
 </style>
-<script>
-import axios from 'axios'
-export default {
-  data(){
-    return{
-      goodsList:[]
-    }
-  },
-  components:{
-  },
-  mounted:function(){
-        this.getGoodsList();
-  },
-  methods:{
-    getGoodsList(){
-      axios.get(".././static/goods.json").then((result)=>{
-        var res=result.data;
-        console.log(res.result);
-        this.goodsList=res.result;
-      });
-    }
-  }
-};
-
-</script>
