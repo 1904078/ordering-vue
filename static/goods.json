@@ -1,0 +1,20 @@
+{
+    "status":"0",
+    "msg":"",
+    "result":[
+        {
+            "productID":"1001",
+            "productName":"chips",
+            "productPrice":"2.5",
+            "productImg":"burger1.jpg"
+        },
+        {
+            "productID":"1002",
+            "productName":"burger",
+            "productPrice":"3",
+            "productImg":"burger2.jpg"
+        }
+    ]
+    
+
+}

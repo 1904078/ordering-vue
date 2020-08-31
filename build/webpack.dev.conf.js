@@ -9,7 +9,14 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
-
+// 自己添加
+// const express = require('express')
+// const app = express()
+// var goodsData = require('./../static/goods.json')//加载本地数据文件
+// var router = express.Router()
+// app.use('/api', router)
+// app.use(router)
+// 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
@@ -42,7 +49,18 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
-    }
+    },
+    // 添加
+    // before(app) {
+    //   app.get('/api/goodsData', (req, res) =>{
+    //     res.json({
+    //       errno: 0,
+    //       data: goodsData
+    //     })//接口返回json数据，上面配置的数据appData就赋值给data请求后调用
+    //   })
+    // }
+
+
   },
   plugins: [
     new webpack.DefinePlugin({
