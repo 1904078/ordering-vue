@@ -14,14 +14,27 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">
+        <!-- <div class="navbar-nav">
+           <router-link class="nav-item nav-link" to="/">
             Home
-            <span class="sr-only">(current)</span>
-          </a>
-          <a class="nav-item nav-link" href="#">Login</a>
-          <a class="nav-item nav-link" href="#">Register</a>
-        </div>
+            </router-link>
+          <router-link class="nav-item nav-link" to="#">Login</router-link>
+          <router-link class="nav-item nav-link" to="#">Register</router-link>
+        </div> -->
+        <ul class=" navbar-nav">
+          <li class="nav-item active"> 
+            <router-link class="nav-item nav-link" to="/">
+            Home
+            <!-- <span class="sr-only">(current)</span> -->
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-item nav-link" to="#">Login</router-link>
+          </li> 
+          <li class="nav-item ">
+             <router-link class="nav-item nav-link" to="#">Register</router-link>
+          </li> 
+        </ul>
       </div>
     </nav>
 </div>
