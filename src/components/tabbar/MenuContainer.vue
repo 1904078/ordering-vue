@@ -1,16 +1,20 @@
 <template>
-  <div>
+<div>
+   <!-- 轮播图 -->
    <nav-carousel></nav-carousel>
-   <nav-product></nav-product>
-  </div>
+   <!-- 产品信息 -->
+   <nav-product></nav-product>  
+</div>
+
 </template>
 <script>
-import NavCarousel from'@/components/NavCarousel.vue'
-import NavProduct from '@/components/NavProduct.vue'
+import NavCarousel from'../NavCarousel.vue'
+import NavProduct from '../NavProduct.vue'
 import axios from 'axios'
 export default {
   data(){
     return{
+      // goodsList:[]
     }
   },
   components:{
@@ -18,4 +22,5 @@ export default {
     NavProduct
   },
 };
+
 </script>
