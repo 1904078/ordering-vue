@@ -16,5 +16,20 @@
             "productIntro":"Chicken",
             "productImg":"burger2.jpg"
         }
+    ],
+    "carousel":[
+        {
+            "carouselImageId":"001",
+            "carouselImage":"burger1.jpg"
+        },
+        {
+            "carouselImagId":"002",
+            "carouselImage":"burger2.jpg"
+        },
+        {
+            "carouselImagId":"003",
+            "carouselImage":"chips.jpg"
+        }
+        
     ]
 }

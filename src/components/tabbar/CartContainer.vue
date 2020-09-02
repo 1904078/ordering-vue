@@ -67,14 +67,26 @@
   </div>
 </template>
 <script>
-import NavBread from "../NavBread.vue";
-import axios from "axios";
+// import NavBread from '../NavBread.vue'
+// import NavBread from '../NavBread.vue'
+// export default {
+//   data() {
+//     return {};
+//   },
+//   components: {
+//     NavBread,
+//   },
+// };
+import NavBread from '../NavBread.vue'
+import axios from 'axios'
 export default {
-  data() {
-    return {};
+  data(){
+    return{
+      // goodsList:[]
+    }
   },
-  components: {
-    NavBread,
+  components:{
+   NavBread
   },
 };
 </script>

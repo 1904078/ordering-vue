@@ -49,7 +49,7 @@
                     <li class="row" v-for="(item,index) in goodsList" :key="index">
                       <div class="col-4 col-sm-4 col-md-4 col-lg-4">
                         <a href="#">
-                          <img class="damu-product-img" v-bind:src="'/static/images/'+item.productImg"  />
+                          <img class="damu-product-img" v-bind:src="'/static/images/'+item.productImg"/>
                         </a>
                       </div>
                       <div class="col-8 col-sm-8 col-md-8 col-lg-4">
@@ -141,6 +141,7 @@ export default {
       axios.get(".././static/goods.json").then((result)=>{
         var res=result.data;
         this.goodsList=res.result;
+            
       });
     },
   }
