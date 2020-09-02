@@ -15,13 +15,13 @@
       <li class="nav-item" role="presentation">
         <a
           class="nav-link"
-          id="reviews-tab"
+          id="comments-tab"
           data-toggle="tab"
-          href="#reviews"
+          href="#comments"
           role="tab"
-          aria-controls="reviews"
+          aria-controls="comments"
           aria-selected="false"
-        >Reviews</a>
+        >Comments</a>
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
@@ -38,10 +38,6 @@
                     <a href="javascript:void(0)" class="list-group-item menuName"  v-bind:class="{'active':menuChecked==index}" 
                     @click="menuChecked=index">{{item.menuName}}</a>
                 </li>
-                
-                <!-- <a href="#" class="list-group-item">Meal</a>
-                <a href="#" class="list-group-item">Snack</a>
-                <a href="#" class="list-group-item">Drinks</a> -->
               </ul>
             </div>
             <div class="col-lg-10 col-md-10 col-sm-9 col-9">
@@ -74,15 +70,13 @@
           </div>
         </div>
       </div>
-      <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+      <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
         <table class="table">
-          <tr class="success">
-            <td colspan="2">
+          <tr class="success damu-comments-header">
+            <!-- <td colspan="2">
               Product:
               <span>Chips</span>
-            </td>
-          </tr>
-          <tr>
+            </td> -->
             <td>
               <img style="width:20px" src="../../static\images/photo.jpg" />
             </td>
@@ -91,17 +85,29 @@
               <span>Ailsa</span>
             </td>
           </tr>
+          <!-- <tr>
+            <td>
+              <img style="width:20px" src="../../static\images/photo.jpg" />
+            </td>
+            <td>
+              User name:
+              <span>Ailsa</span>
+            </td>
+          </tr> -->
           <tr>
-            <td colspan="2">
+            <td colspan="2" >
               <p>It is very delicious.It is very delicious.It is very delicious</p>
             </td>
           </tr>
         </table>
         <!---写评论------>
         <form role="form">
-          <div class="form-group">
-            <label for="name">Reviews</label>
-            <input type="text" class="form-control" placeholder="Write your review...." />
+          <div class="form-group ">
+            <!-- <label for="name">comments</label> -->
+            <input type="text" class="form-control" placeholder="Write your comment...." />
+            <!-- <div class="justify-content-center"> -->
+              <input type="submit" class="btn btn-info clearfix" value="Submit">
+  
           </div>
         </form>
       </div>
@@ -148,7 +154,7 @@ export default {
 };
 
 </script>
-<style scoped>
+<style  scoped>
 ul li{
     list-style:none;
 }
@@ -221,4 +227,19 @@ a {
   margin-bottom: 20px;
   width: 100%;
 }
+#comments{
+  padding:30px;
+}
+.damu-comments-header{
+  background-color: rgb(158, 154, 154);
+}
+ .btn-info {
+    /* float:right; */
+    display: block;
+    background-color: #ffc107;
+    border-color: #cc9a05;
+    margin:10px auto;
+
+}
+
 </style>

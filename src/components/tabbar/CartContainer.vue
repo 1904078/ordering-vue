@@ -5,9 +5,7 @@
     </nav-bread>
     <div class="container damu-cart-wrap">
       <div class="row">
-        <div class="col-lg-2 col-md-2"></div>
-        <div class="col-lg-10 col-md-10 col-sm-12 col-12">
-          <table class="table damu-table">
+       <table class="table damu-table">
             <tr>
               <th></th>
               <th>Goods</th>
@@ -39,27 +37,23 @@
               <td>10</td>
             </tr>
           </table>
-        </div>
-        <div class="col-lg-2 col-md-2"></div>
       </div>
     </div>
     <div class="container panel panel-default damu-bottom-wrap">
       <div class="row panel-body bottom-menu-include">
-        <div class="col-md-2 col-xs-2 check-all-bottom bottom-menu">
+        <div class="col-md-3 col-xs-3 col-3 check-all-bottom bottom-menu">
           <label class="damu-checkbox">
-            <input type="checkbox" id="checked-all-bottom" />
+            <input type="checkbox" id="checked-all-bottom"/>
             <span id="checkAllBottom">All</span>
           </label>
         </div>
-        <div class="col-md-2 col-xs-2 bottom-menu">
+        <div class="col-md-3 col-xs-3 col-3 bottom-menu">
             <span>Total:<span id="selectGoodsMoney">0.00</span></span>
         </div>
-         <div class="col-md-4 col-xs-4 bottom-menu">
-        </div>
-         <div class="col-md-2 col-xs-2 bottom-menu">
+         <div class="col-md-3 col-xs-3 col-3 bottom-menu">
             <button class="btn"><span id="deleteMulty">Delete</span></button>         
         </div>
-         <div class="col-md-2 col-xs-2 bottom-menu">
+         <div class="col-md-3 col-xs-3 col-3 bottom-menu">
             <button class="btn"><span id="payMulty"><a href="#">Pay</a></span></button> 
         </div>
       </div>
@@ -67,16 +61,6 @@
   </div>
 </template>
 <script>
-// import NavBread from '../NavBread.vue'
-// import NavBread from '../NavBread.vue'
-// export default {
-//   data() {
-//     return {};
-//   },
-//   components: {
-//     NavBread,
-//   },
-// };
 import NavBread from '../NavBread.vue'
 import axios from 'axios'
 export default {

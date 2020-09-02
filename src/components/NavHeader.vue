@@ -23,7 +23,7 @@
         </div> -->
         <ul class=" navbar-nav">
           <li class="nav-item active"> 
-            <router-link class="nav-item nav-link" to="/">
+            <router-link class="nav-item nav-link" to="/home">
             Home
             <!-- <span class="sr-only">(current)</span> -->
             </router-link>

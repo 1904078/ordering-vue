@@ -10,16 +10,33 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: '/',
-      name: 'GoodsList',
-      component: GoodsList
-    },
-    {
-      path: '/menu',
-      name: 'menu',
-      component: MenuContainer
-    },
+  //   {
+  //     path: '/',
+  //     name: 'GoodsList',
+  //     component: GoodsList
+  //   },
+  //  {
+  //    path:'/home',
+  //    redirect:'/menu'
+  //  },
+  //   {
+  //     path: '/menu',
+  //     
+  //     component: MenuContainer
+  //   },
+  {
+    path:'/',
+    redirect:'/home'
+  },
+  {
+    path:'/menu',
+    redirect:'/home'
+  },
+  {
+    path:'/home',
+    name: 'home',
+    component: MenuContainer
+  },
     {
       path: '/cart',
       name: 'cart',

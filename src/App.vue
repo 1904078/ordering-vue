@@ -4,7 +4,8 @@
 <!-- nav-header -->
     <nav-header></nav-header>
 <!-- router -->
-   <router-view></router-view>
+  <router-view></router-view>
+   
 <!-- nav-footer -->
    <nav-footer></nav-footer>
   </div>
