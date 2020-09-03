@@ -3,13 +3,8 @@
      <nav class="navbar navbar-expand-lg navbar-light bg-light damu-navbar-top">
       <a class="navbar-brand damu-navbar-brand" href="#"><h2>Easy to order</h2></a>
       <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+        class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -21,18 +16,18 @@
           <router-link class="nav-item nav-link" to="#">Login</router-link>
           <router-link class="nav-item nav-link" to="#">Register</router-link>
         </div> -->
-        <ul class=" navbar-nav">
+        <ul class=" navbar-nav mr-auto">
           <li class="nav-item active"> 
-            <router-link class="nav-item nav-link" to="/home">
+            <router-link class=" nav-link" to="/">
             Home
-            <!-- <span class="sr-only">(current)</span> -->
+            <span class="sr-only">(current)</span>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-item nav-link" to="#">Login</router-link>
+            <router-link class="nav-link" to="/login">Login</router-link>
           </li> 
           <li class="nav-item ">
-             <router-link class="nav-item nav-link" to="#">Register</router-link>
+             <router-link class="nav-link" to="#">Register</router-link>
           </li> 
         </ul>
       </div>

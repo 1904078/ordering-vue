@@ -1,0 +1,14 @@
+{
+    "status":"0",
+    "msg":"",
+    "result":[
+        {
+            "userID":"001",
+            "userName":"admin",
+            "phoneNumber":"12345678901",
+            "password":"123456",
+            "emailAddress":"123456@qq.com"
+        }
+    ]
+   
+}

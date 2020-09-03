@@ -36,11 +36,13 @@
             </div>
         </div>
     </div>
+    <!-- <nav-footer></nav-footer> -->
   </div>
 </template>
 <script>
 import NavBread from '../NavBread.vue'
 import OrderInfo from '../OrderInfo.vue'
+// import NavFooter from'@/components/NavFooter.vue'
 import axios from 'axios'
 export default {
   data() {
@@ -48,7 +50,8 @@ export default {
   },
   components: {
     NavBread,
-    OrderInfo
+    OrderInfo,
+    // NavFooter
   },
 };
 </script>
