@@ -42,10 +42,10 @@
             </div>
             <div class="col-lg-10 col-md-10 col-sm-9 col-9">
                   <ul class="container damu-product">
-                    <li class="row" v-for="(item,index) in goodsList" :key="index">
+                    <li class="row" v-for="(item,index) in ProductsList" :key="index">
                       <div class="col-4 col-sm-4 col-md-4 col-lg-4">
                         <a href="#">
-                          <img class="damu-product-img" v-bind:src="'/static/images/'+item.productImg"/>
+                          <img class="damu-product-img" v-bind:src="'/static/images/'+item.productImage"/>
                         </a>
                       </div>
                       <div class="col-8 col-sm-8 col-md-8 col-lg-4">
@@ -56,7 +56,7 @@
                           </a>
                         </div>
                         <div class="damu-price-cart">
-                          <span class="damu-price">£{{item.productPrice}}</span>
+                          <span class="damu-price">£{{item.salePrice}}</span>
                           <a href="javascript:;" class="damu-cart">
                             <span class="fa fa-cart-plus"></span>
                           </a>
@@ -119,7 +119,7 @@ import axios from 'axios'
 export default {
   data(){
     return{
-      goodsList:[],
+      ProductsList:[],
        menuList:[
         {"menuId":"1",
           "menuName":"Single item"
@@ -140,13 +140,16 @@ export default {
   components:{
   },
   mounted:function(){
-        this.getGoodsList();
+        this.getProductsList();
   },
   methods:{
-    getGoodsList(){
-      axios.get(".././static/goods.json").then((result)=>{
+    getProductsList(){
+      // axios.get(".././static/products.json").then((result)=>{
+      //   var res=result.data;
+      //   this.ProductsList=res.result;
+         axios.get("/product").then((result)=>{
         var res=result.data;
-        this.goodsList=res.result;
+        this.ProductsList=res.result.list;
             
       });
     },
