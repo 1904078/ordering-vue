@@ -29,7 +29,7 @@
                   <!-- </span> -->
                 </div>
                 <div class="damu-button-wrap">
-                  <a href="/" @click="login">
+                  <a href="javascript:;" @click="login">
                     <button  class="btn  btn-default damu-form-button" type="button">
                     Login
                     </button>
@@ -57,6 +57,7 @@
 import '../assets/css/style.css'
 import NavHeader from'@/components/NavHeader.vue'
 import axios from 'axios'
+import qs from 'qs'
 export default {
   data(){
     return{
@@ -65,14 +66,29 @@ export default {
       errorTip:false,
     }
   },
-  components:{
+   components:{
     NavHeader,
   },
   methods:{
     login(){
-      
+      if(!this.userName||!this.password){
+        this.errorTip=true;
+        return;      
+      }
+     axios.post("/users/login",qs.stringify({
+        userName:this.userName,
+        password:this.password
+      }),{headers:{'Content-Type':'application/x-www-form-urlencoded'}}).then((response)=>{
+                    let res = response.data;
+                    if(res.status=="0"){
+                      this.errorTip = false;
+                    }else{
+                      this.errorTip = true;
+                    }
+      });
   }
-  }
+  },
+  
 };
 
 </script>

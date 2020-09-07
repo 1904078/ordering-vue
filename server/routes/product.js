@@ -1,9 +1,9 @@
 var express=require('express')
 var router=express.Router();
 var mongoose=require('mongoose');
-var product=require('../models/product');
+var product=require('./../models/product');
 
-mongoose.connect('mongodb://127.0.0.1:27017/ordering');
+mongoose.connect('mongodb://127.0.0.1:27017/ordering',{useUnifiedTopology:true,useNewUrlParser: true });
 mongoose.connection.on("connected",function(){
     console.log("MongoDB connected success")
 });

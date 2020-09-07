@@ -15,7 +15,16 @@ module.exports = {
       //做一个转发
       '/product':{
         target:'http://localhost:3000'
-      }
+      },
+      '/product/*':{
+        target:'http://localhost:3000'
+      },
+      '/users':{
+        target: 'http://localhost:3000',
+       },
+      '/users/*':{
+        target:'http://localhost:3000'
+      },
     },
 
     // Various Dev Server settings
