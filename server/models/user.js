@@ -2,9 +2,9 @@ var mongoose =require('mongoose')
 var Schema=mongoose.Schema;
 
 var UserSchema=new Schema({
- "UserId":String,
- "UserName":String,
- "PhoneNumber":String,
+ "userId":String,
+ "userName":String,
+ "phoneNumber":String,
  'password':String,
  "emailAdress":String
 });

@@ -6,27 +6,28 @@ var  User=require('./../models/user')
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
-router.get('/test', function(req, res, next) {
-  res.send('test');
-});
+
 //定义一个二级路由
 router.post("/login",function(req,res,next){
 //拿到前端传过来的参数
-console.log(req.body)
 var param={
   userName:req.body.userName,
   password:req.body.password
-  
 }
-
+console.log("111")
+console.log(param)
 User.findOne(param,function(err,doc){
+  console.log("222")
+  console.log(param)
   if (err){
+    console.log("err")
   res.json({
       status:"1",
-      msg:err.message
+      msg:err.message,
     });
   }else{
     if(doc){//获取到了用户
+      console.log("doc")
       res.cookie("userId",doc.userId,{
         path:'/',
         maxAge:1000*60*60
@@ -46,5 +47,18 @@ User.findOne(param,function(err,doc){
     }
   }
 })
+});
+
+//登出接口
+router.post("/logout", function (req,res,next) {
+  res.cookie("userId","",{
+    path:"/",
+    maxAge:-1
+  });
+  res.json({
+    status:"0",
+    msg:'',
+    result:''
+  })
 });
 module.exports = router;

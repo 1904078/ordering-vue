@@ -23,11 +23,15 @@
             <span class="sr-only">(current)</span>
             </router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/login">Login</router-link>
+           <li class="nav-item" v-if="nickName">
+              <span class="nav-link" style="color:red" v-text="nickName" v-if="nickName"></span>
+           </li>
+          <li class="nav-item" v-if="!nickName">
+            <router-link class="nav-link" to="/login" >Login</router-link>
           </li> 
-          <li class="nav-item ">
-             <router-link class="nav-link" to="/register">Register</router-link>
+          <li class="nav-item " v-else @click="logout">
+             <!-- <router-link class="nav-link" to="/register">Register</router-link> -->
+             <a class="nav-link">log out</a>
           </li> 
         </ul>
       </div>
@@ -71,3 +75,39 @@ export default {
   background-color: #ffe6aa;
 } 
 </style>
+<script>
+import axios from 'axios'
+import bus from '../assets/eventbus'
+export default {
+   data(){
+    return{
+      nickName:''
+    }
+  },
+  mounted () {
+    bus.$on('nickname', (val) => {
+      this.nickName = val
+    })
+  },
+  methods: {
+    // logout(){
+    //   axios.post("/users/logout").then((response)=>{
+    //       let res=response.data;
+    //       if(res.status=="0"){
+    //         this.nickName='';
+    //       }
+    //   })
+    // }
+      logout(){
+                axios.post("/users/logout").then((response)=>{
+                    let res = response.data;
+                    if(res.status=="0"){
+                       this.nickName = '';
+                        // this.$store.commit("updateUserInfo",res.result.userName);
+                    }
+                })
+            },
+  },
+}
+
+</script>
