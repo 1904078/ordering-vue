@@ -147,7 +147,7 @@ export default {
       // axios.get(".././static/products.json").then((result)=>{
       //   var res=result.data;
       //   this.ProductsList=res.result;
-         axios.get("/product").then((result)=>{
+         axios.get("/product/list").then((result)=>{
         var res=result.data;
         this.ProductsList=res.result.list;
             

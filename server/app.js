@@ -27,6 +27,25 @@ app.use(bodyParser.urlencoded({extended:false}))
 //parse application/json
 app.use(bodyParser.json())
 
+//拦截
+app.use(function(req,res,next){
+if(req.cookies.userId){
+  next();
+}else{
+  if(req.originalUrl=='/users/login'||req.originalUrl=='/users/logout'||req.originalUrl.indexOf('/product/list')>-1){
+    next();
+  }else{
+    res.json({
+      status:'10001',
+      msg:'Please login first',
+      result:''
+    })
+  }
+}
+})
+
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

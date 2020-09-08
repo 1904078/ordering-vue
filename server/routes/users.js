@@ -14,20 +14,20 @@ var param={
   userName:req.body.userName,
   password:req.body.password
 }
-console.log("111")
-console.log(param)
+// console.log("111")
+// console.log(param)
 User.findOne(param,function(err,doc){
-  console.log("222")
-  console.log(param)
+  // console.log("222")
+  // console.log(param)
   if (err){
-    console.log("err")
+    // console.log("err")
   res.json({
       status:"1",
       msg:err.message,
     });
   }else{
     if(doc){//获取到了用户
-      console.log("doc")
+      // console.log("doc")
       res.cookie("userId",doc.userId,{
         path:'/',
         maxAge:1000*60*60
@@ -60,5 +60,21 @@ router.post("/logout", function (req,res,next) {
     msg:'',
     result:''
   })
+});
+//校验
+router.get("/checkLogin",function(req,res,next){
+if(req.cookies.userId){
+  res.json({
+    status:'0',
+    msg:'',
+    result:req.cookies.userName||''
+  })
+}else{
+  res.json({
+    status:'0',
+    msg:'Not logged in',
+    result:''
+  })
+}
 });
 module.exports = router;

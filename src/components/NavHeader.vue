@@ -87,17 +87,19 @@ export default {
   mounted () {
     bus.$on('nickname', (val) => {
       this.nickName = val
-    })
+    }),
+    this.checkLogin();
   },
   methods: {
-    // logout(){
-    //   axios.post("/users/logout").then((response)=>{
-    //       let res=response.data;
-    //       if(res.status=="0"){
-    //         this.nickName='';
-    //       }
-    //   })
-    // }
+    checkLogin(){
+      axios.get("/users/checkLogin").then((response)=>{
+       let res=response.data;
+       if(res.status=="0"){
+         //成功
+         this.nickName=res.result
+       }
+      })
+    },
       logout(){
                 axios.post("/users/logout").then((response)=>{
                     let res = response.data;
