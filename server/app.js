@@ -45,8 +45,6 @@ if(req.cookies.userId){
 })
 
 
-
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/product', productRouter);

@@ -57,7 +57,7 @@
                         </div>
                         <div class="damu-price-cart">
                           <span class="damu-price">£{{item.salePrice}}</span>
-                          <a href="javascript:;" class="damu-cart">
+                          <a href="javascript:;" class="damu-cart" @click="addCart(item.productId)">
                             <span class="fa fa-cart-plus"></span>
                           </a>
                         </div>
@@ -144,15 +144,24 @@ export default {
   },
   methods:{
     getProductsList(){
-      // axios.get(".././static/products.json").then((result)=>{
-      //   var res=result.data;
-      //   this.ProductsList=res.result;
          axios.get("/product/list").then((result)=>{
         var res=result.data;
         this.ProductsList=res.result.list;
             
       });
     },
+    addCart(productId){
+      axios.post("/product/addCart",{
+        productId:productId
+      }).then((res)=>{
+        console.log(res.data.status)
+        if(res.data.status==0){
+          alert('加入成功');
+        }else{
+          alert("msg:"+res.data.msg)
+        }
+      })
+    }
   }
 };
 

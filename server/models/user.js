@@ -6,6 +6,18 @@ var UserSchema=new Schema({
  "userName":String,
  "phoneNumber":String,
  'password':String,
- "emailAdress":String
+ "emailAdress":String,
+ "cartList":[
+    {
+      "productId":String,
+      "productName":String,
+      "salePrice":Number,
+      "productNumber":Number,
+      'productIntro':String,
+      "productImage":String, 
+      "checked":String,
+    }
+  ],
+  "orderList":Array,
 });
 module.exports=mongoose.model('User',UserSchema);

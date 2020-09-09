@@ -5,8 +5,9 @@ var productSchema=new Schema({
  "productId":String,
  "productName":String,
  "salePrice":Number,
- "producrNumber":Number,
+ "productNumber":Number,
  'productIntro':String,
- "productImage":String
+ "productImage":String,
+ "checked":String
 });
 module.exports=mongoose.model('Product',productSchema);
