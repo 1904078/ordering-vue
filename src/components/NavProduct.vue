@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="damu-navtab">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
@@ -73,10 +74,6 @@
       <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
         <table class="table">
           <tr class="success damu-comments-header">
-            <!-- <td colspan="2">
-              Product:
-              <span>Chips</span>
-            </td> -->
             <td>
               <img style="width:20px" src="../../static\images/photo.jpg" />
             </td>
@@ -85,15 +82,6 @@
               <span>Ailsa</span>
             </td>
           </tr>
-          <!-- <tr>
-            <td>
-              <img style="width:20px" src="../../static\images/photo.jpg" />
-            </td>
-            <td>
-              User name:
-              <span>Ailsa</span>
-            </td>
-          </tr> -->
           <tr>
             <td colspan="2" >
               <p>It is very delicious.It is very delicious.It is very delicious</p>
@@ -112,10 +100,19 @@
         </form>
       </div>
     </div>
+  
   </div>
+  <modal v-bind:mdShow="mdShow" v-on:close="closeModal">
+    <span slot="message">
+      Please Login first
+    </span>
+    <span slot="btnGroup">Close</span>
+  </modal>
+</div> 
 </template>
 <script>
 import axios from 'axios'
+import Modal from'@/components/Modal.vue'
 export default {
   data(){
     return{
@@ -134,10 +131,12 @@ export default {
           "menuName":"Drinks"
         }
     ],
-     menuChecked:'all'
+     menuChecked:'all',
+     mdShow:false,
     }
   },
   components:{
+    Modal
   },
   mounted:function(){
         this.getProductsList();
@@ -158,9 +157,13 @@ export default {
         if(res.data.status==0){
           alert('加入成功');
         }else{
-          alert("msg:"+res.data.msg)
+          // alert("msg:"+res.data.msg)
+          this.mdShow=true;
         }
-      })
+      });
+    },
+    closeModal(){
+        this.mdShow=false;
     }
   }
 };
