@@ -115,7 +115,7 @@
      Success
     </span>
     <div slot="btnGroup" >
-      <a class="btn" href="javascript:;" @click="mdShowCart=false">Go continue Shopping</a> 
+      <a class="btn" href="javascript:;" @click="mdShowCart=false">Continue Shopping</a> 
       <router-link class="btn" href="javascript:;" to="/cart">View shopping cart</router-link>
     </div>
   </modal>
@@ -269,6 +269,9 @@ a {
     border-color: #cc9a05;
     margin:10px auto;
 
+}
+.btn a{
+  color:#fff;
 }
 
 </style>

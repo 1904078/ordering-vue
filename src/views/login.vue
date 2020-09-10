@@ -76,8 +76,7 @@ export default {
       if(!this.userName||!this.password){
         this.errorTip=true;
         return;      
-      }
-       
+      }  
      axios.post("/users/login",qs.stringify({
         userName:this.userName,
         password:this.password

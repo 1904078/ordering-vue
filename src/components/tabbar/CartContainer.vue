@@ -56,7 +56,11 @@
               </button>         
         </div>
          <div class="col-md-3 col-xs-3 col-3 bottom-menu">
-            <button class="btn"><span id="payMulty"><a href="#">Pay</a></span></button> 
+            <button class="btn">
+              <span id="payMulty">
+                <router-link to="/pay">Pay</router-link>
+                </span>
+            </button> 
         </div>
       </div>
     </div>
@@ -131,12 +135,9 @@ export default {
        this.modalConfirm=true;
       this.cartList.forEach((item)=>{
           if(item.checked=='1'){
-      //  this.productId=item.productId;
-      //   this.modalConfirm=true;
          this.productIdList.push({'productId':item.productId})
         } 
       });
-      console.log('productIdList'+this.productIdList)
     },
     delCart(){ 
        this.productIdList.forEach((item)=>{

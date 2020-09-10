@@ -5,6 +5,7 @@ import MenuContainer from '@/components/tabbar/MenuContainer.vue'
 import CartContainer from '@/components/tabbar/CartContainer.vue'
 import OrderContainer from '@/components/tabbar/OrderContainer.vue'
 import MyContainer from '@/components/tabbar/MyContainer.vue'
+import PayContainer from '@/components/tabbar/PayContainer.vue'
 import Login from '@/views/login.vue'
 import { rcompareIdentifiers } from 'semver'
 import { renderFile } from 'ejs'
@@ -43,6 +44,11 @@ export default new Router({
           path: 'my',
           name: 'my',
           component: MyContainer
+        },
+        {
+          path: 'pay',
+          name: 'pay',
+          component: PayContainer
         },
       ]
     },
