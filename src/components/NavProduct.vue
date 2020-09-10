@@ -102,11 +102,22 @@
     </div>
   
   </div>
+  <!-- 未登录 -->
   <modal v-bind:mdShow="mdShow" v-on:close="closeModal">
     <span slot="message">
       Please Login first
     </span>
     <span slot="btnGroup">Close</span>
+  </modal>
+  <!-- 加入成功 -->
+   <modal v-bind:mdShow="mdShowCart" v-on:close="closeModal">
+    <span slot="message">
+     Success
+    </span>
+    <div slot="btnGroup" >
+      <a class="btn" href="javascript:;" @click="mdShowCart=false">Go continue Shopping</a> 
+      <router-link class="btn" href="javascript:;" to="/cart">View shopping cart</router-link>
+    </div>
   </modal>
 </div> 
 </template>
@@ -133,6 +144,7 @@ export default {
     ],
      menuChecked:'all',
      mdShow:false,
+     mdShowCart:false
     }
   },
   components:{
@@ -146,7 +158,6 @@ export default {
          axios.get("/product/list").then((result)=>{
         var res=result.data;
         this.ProductsList=res.result.list;
-            
       });
     },
     addCart(productId){
@@ -155,7 +166,9 @@ export default {
       }).then((res)=>{
         console.log(res.data.status)
         if(res.data.status==0){
-          alert('加入成功');
+          // alert('加入成功');
+          this.mdShowCart=true;
+
         }else{
           // alert("msg:"+res.data.msg)
           this.mdShow=true;
@@ -164,6 +177,7 @@ export default {
     },
     closeModal(){
         this.mdShow=false;
+         this.mdShowCart=false;
     }
   }
 };

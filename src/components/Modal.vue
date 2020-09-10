@@ -13,7 +13,7 @@
         <slot name="message"></slot>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="closeModal">
+        <button type="button"  class="btn" data-dismiss="modal" @click="closeModal">
         <!-- Close -->
          <slot name="btnGroup"></slot>
         </button>
@@ -25,6 +25,9 @@
 <style scoped>
 .md-show{
   display: block;
+}
+.btn a{
+  background-color:rgb(233, 187, 37);
 }
 </style>>
 

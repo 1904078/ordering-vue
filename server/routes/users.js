@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 //引入模型
-var  User=require('./../models/user')
+var  User=require('./../models/user');
+// const { use } = require('vue/types/umd');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -76,5 +77,105 @@ if(req.cookies.userId){
     result:''
   })
 }
+});
+//查询当前用户的购物车数据购物车
+router.get("/cartList",function(req,res,next){
+ var userId=req.cookies.userId;
+ User.findOne({userId:userId},function(err,doc){
+   if(err){
+     res.json({
+       status:'1',
+       msg:err.message,
+       result:''
+     })
+   }else{
+     if(doc){
+       res.json({
+         status:'0',
+         msg:'',
+         result:doc.cartList
+       });
+     }
+   }
+ })
+});
+//购物车删除
+router.post("/cartDel",function(req,res,next){
+var userId=req.cookies.userId,productId=req.body.productId;
+User.update({userId:userId},{$pull:{'cartList':{'productId':productId}}},function(err,doc){
+  if(err){
+    res.json({
+      status:'1',
+      msg:err.message,
+      result:''
+    })
+  }else{
+    res.json({
+      status:'0',
+      msg:'',
+      result:'success'
+    })
+  }
+});
+});
+// 修改商品数量
+router.post("/cartEdit", function (req,res,next) {
+  var userId = req.cookies.userId,
+      productId = req.body.productId,
+      productNumber = req.body.productNumber,
+      checked = req.body.checked;
+  User.update({"userId":userId,"cartList.productId":productId},{
+    "cartList.$.productNumber":productNumber,
+    "cartList.$.checked":checked,
+  }, function (err,doc) {
+    if(err){
+      res.json({
+        status:'1',
+        msg:err.message,
+        result:''
+      });
+    }else{
+      res.json({
+        status:'0',
+        msg:'',
+        result:'suc'
+      });
+    }
+  });
+});
+//
+router.post("/editCheckAll",function(req,res,next){
+  var userId = req.cookies.userId,
+      checkAll = req.body.checkAll?'1':'0';
+  User.findOne({userId:userId},function(err,user){
+    if(err){
+      res.json({
+        status:'1',
+        msg:err.message,
+        result:''
+      });
+    }else{
+      if(user){
+        user.cartList.forEach((item)=>{
+          item.checked=checkAll;
+        })
+        user.save(function(err1,doc){
+          if(err1){
+            res.json({
+              status:'1',
+              msg:err1.message,
+              result:''
+            });
+          }else{
+            res.json({
+              status:'0',
+              msg:'',
+              result:'success'
+            });
+          }
+        })
+      }
+    }
+  });
 });
 module.exports = router;
