@@ -7,14 +7,6 @@
       <div class="row">
         <div class="col-md-3 col-sm-3 col-xs-1"></div>
         <div class="col-md-6 col-sm-6 col-xs-10 clearfix">
-<!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-  </li>
-</ul>
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
-</div> -->
           <ul class="nav nav-tabs" role="tablist" id="myTab">
             <li role="presentation" class="nav-item">
               <a
@@ -52,10 +44,10 @@
           </ul>
           <div class="tab-content" id="myTabContent">
             <div role="tabpanel" class="tab-pane active" id="now" aria-labelledby="now-tab">
-              <ul class="list-group">
-                <li class="list-group-item">
+              <ul class="list-group conatiner">
+                <li class="list-group-item row">
                   <span class="damu-pay-infoName">Pick-up time</span>
-                  <span class="damu-pay-info">13:45<button class="damu-pay-btn">></button></span>
+                  <!-- <input id="startTime"  autocomplete="off" v-model="PickupTime"/> -->
                 </li>
               </ul>
             </div>
@@ -138,17 +130,33 @@
         <div class="col-md-3 col-sm-3 col-xs-1"></div>
       </div>
     </div>
+    <div class="panel panel-default damu-bottom-wrap container">
+        <div class="panel-body bottom-menu-include row">
+            <div class="col-md-3 col-sm-3 col-3 check-all-bottom bottom-menu"></div>
+            <div class="col-md-3 col-sm-3 col-3 bottom-menu">
+                <span>Total:<span id="selectGoodsMoney">0.00</span></span>
+            </div>
+            <div class="col-md-3 col-sm-3 col-3 bottom-menu">
+                <button class="btn"><span id="payMulty"><a href="#">Pay</a></span></button>  
+            </div>
+            <div class="col-md-3 col-sm-3 col-3 bottom-menu"></div>
+        </div>
+    </div>
   </div>
 </template>
 <script>
 import NavBread from "../NavBread.vue";
+import axios from 'axios'
+// import $ from 'jquery'
+import 'vue-bootstrap-datetimepicker'
+// import datePicker from 'vue-bootstrap-datetimepicker'
+// import '@fortawesome/fontawesome-free/css/all.css'
+import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css'
 export default {
-  data() {
-    return {};
-  },
   components: {
     NavBread,
   },
+ 
 };
 </script>
 <style scoped>
@@ -166,4 +174,35 @@ a {
     margin-bottom: 10px;
     border: none;
 }
+.damu-bottom-wrap{
+    bottom: 30px;
+    margin-bottom: 20px;
+    border-width: 1px 0 0;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+.bottom-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bottom-menu #checkAllBottom {
+    vertical-align: text-bottom;
+}
+#selectGoodsMoney {
+    color: rgb(194, 182, 24);
+    font-size: 16px;
+    font-weight: bolder;
+}
+#deleteMulty, #payMulty{
+    color: rgb(194, 182, 24);
+    cursor: pointer;
+    vertical-align: text-bottom;
+}
+.bottom-menu-include {
+    background: #e5e5e5;
+}
+
 </style>

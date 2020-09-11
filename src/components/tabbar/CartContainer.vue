@@ -58,7 +58,7 @@
          <div class="col-md-3 col-xs-3 col-3 bottom-menu">
             <button class="btn">
               <span id="payMulty">
-                <router-link to="/pay">Pay</router-link>
+                <a  v-bind:class="{'disabled':checkedCount==0}" @click="checkout">Checkout</a>
                 </span>
             </button> 
         </div>
@@ -182,8 +182,14 @@ export default {
       }).then((response)=>{
         let res=response.data;
       })
+    },
+    checkout(){
+      if(this.checkedCount>0){
+        this.$router.push({
+          path:'/pay'
+        });
+      }
     }
-    
   }
 };
 </script>
